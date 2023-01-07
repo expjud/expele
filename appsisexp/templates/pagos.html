@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Dando estilo a tablas</title>
+
+	<link rel="stylesheet" href="{% static 'expedien/css/tabla.css' %}">
+</head>
+<body>
+
+
+                <article class="content responsive-tables-page">
+                    <div class="title-block">
+                        <h1 class="title"> Pagos </h1>
+                        <p class="title-description"> Listado de Pagos </p>
+                    </div>
+
+        
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-block">
+                                        <div class="card-title-block">
+                                            <!-- <h3 class="title">Reclamos</h3> -->
+                                        </div>
+                                        
+                                        
+                                        <section class="example">
+                                            <div class="table-responsive">
+                                                <table id="example2" class="table table-striped table-bordered table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>FECHA PAGO</th>
+                                                            <th>TIPO PAGO</th>
+                                                            <th>MONTO ACORDADO</th>
+                                                            <th>MONTO PARCIAL</th>
+                                                            <th>OTROS PAGOS</th>
+                                                            <th>OBSERVACIONES</th>                                                                                                                        
+                                                            <th>Opciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    	{% for fila in list_rec %}
+                                                        <tr>
+                                                            <td>{{ fila.Fecha_pago }}
+                                                            <td>{{ fila.Tip_pag }}</td>
+                                                            <td>{{ fila.Monto_acordado}}</td>
+                                                            <td>{{ fila.Pago_parcial }}</td>
+                                                            <td>{{ fila.otro_pago }}</td> 
+                                                            <td>{{ fila.Observacion }}</td>                                                            
+                                                            <td>
+
+
+                                                    <div class="btn-group">
+
+                                                <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-wrench"></i></button>
+                                                
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="#">volver</a>                                                    
+                                                    <div class="dropdown-divider"></div>                                                    
+                                                </div>
+                                                     </div>
+                                                            
+                                                        </tr>
+                                                        {% endfor %}
+                                                        <td> </td>
+                                                        <td> </td>
+                                                        <td> </td>
+                                                        <td>Total Parcial:  {{ total.totalpar }}</td>                                                        
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </article>
+  </body>
+</html>
